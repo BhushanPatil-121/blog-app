@@ -6,6 +6,6 @@ const nextConfig = {
 
 module.exports = {
     env: {
-        API: 'http://localhost:3000',
+        API: 'https://blogapp.vercel.app',
       }
 }

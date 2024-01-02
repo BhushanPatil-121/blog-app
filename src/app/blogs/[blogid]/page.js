@@ -3,7 +3,8 @@ import "./page.css";
 export default async function BlogId({ params }) {
   let id = params.blogid;
   const getSingleBlog = async () => {
-    let item = await fetch("http://localhost:3000/api/blogs/" + id, {
+    const API = process.env.API
+    let item = await fetch(API+"/api/blogs/" + id, {
       cache: "no-cache",
     });
     item = await item.json();

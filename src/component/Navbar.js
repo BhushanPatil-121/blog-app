@@ -14,7 +14,7 @@ export default function Navbar(){
       {/* <button */}
        
       {/* > */}
-        <Image  className="hamburger"
+        <Image  className="hamburger" alt="BTN"
         onClick={() => {
           setIsNavExpanded(!isNavExpanded)
         }} height={50} width={50} src={"/3line.png"}/>

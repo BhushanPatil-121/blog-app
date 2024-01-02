@@ -1,7 +1,8 @@
 import Link from "next/link";
 import "./page.css";
 const getData = async () => {
-  let data = await fetch("http://localhost:3000/api/blogs", {
+  const API = process.env.API
+  let data = await fetch(API+"/api/blogs", {
     cache: "no-cache",
   });
   data = await data.json();

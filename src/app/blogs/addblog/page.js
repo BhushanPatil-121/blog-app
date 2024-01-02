@@ -24,7 +24,8 @@ export default function Addblog() {
   };
   const addBlog = async (request) => {
     let lastedit=null;
-    let data = await fetch("http://localhost:3000/api/blogs", {
+    const API = process.env.API
+    let data = await fetch(API+"/api/blogs", {
       method: "POST",
       body: JSON.stringify({ name, title, subtitle, info, date ,lastedit}),
     });

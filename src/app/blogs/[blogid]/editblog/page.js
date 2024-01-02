@@ -13,7 +13,8 @@ export default function EditBlog({ params }) {
     dateData.getFullYear();
 
   const getSingleBlog = async () => {
-    let item = await fetch("http://localhost:3000/api/blogs/" + id, {
+    const API = process.env.API
+    let item = await fetch(API+"/api/blogs/" + id, {
       cache: "no-cache",
     });
     item = await item.json();
@@ -42,7 +43,8 @@ export default function EditBlog({ params }) {
   const [lastedit, setLastedit] = useState("");
   const [editdate, setEditdate] = useState("");
   const updateBlog = async () => {
-    let data = await fetch("http://localhost:3000/api/blogs/" + id, {
+    const API = process.env.API
+    let data = await fetch(API+"/api/blogs/" + id, {
       method: "PUT",
       body: JSON.stringify({
         name,

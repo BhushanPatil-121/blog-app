@@ -1,8 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import "./page.css";
+import { BASE_API_URL } from "@/lib/mongodb";
 export default function EditBlog({ params }) {
+  const router = useRouter();
   let id = params.blogid;
   let dateData = new Date();
   let currentDate =
@@ -12,9 +15,9 @@ export default function EditBlog({ params }) {
     "/" +
     dateData.getFullYear();
 
-  const getSingleBlog = async () => {
-    const API = process.env.API
-    let item = await fetch(API+"/api/blogs/" + id, {
+    const getSingleBlog = async () => {
+    // const API = process.env.API
+    let item = await fetch(`${BASE_API_URL}/api/blogs/${id}` , {
       cache: "no-cache",
     });
     item = await item.json();
@@ -42,9 +45,9 @@ export default function EditBlog({ params }) {
   const [date, setDate] = useState("");
   const [lastedit, setLastedit] = useState("");
   const [editdate, setEditdate] = useState("");
+  // const API = process.env.API
   const updateBlog = async () => {
-    const API = process.env.API
-    let data = await fetch(API+"/api/blogs/" + id, {
+    let data = await fetch(`${BASE_API_URL}/api/blogs/${id}`, {
       method: "PUT",
       body: JSON.stringify({
         name,
@@ -61,6 +64,8 @@ export default function EditBlog({ params }) {
     // console.log(data);
     if (data.success) {
       alert("Blog Updated Successfuly.");
+      console.log(id);
+      router.push("/blogs/"+id);
     } else {
       alert("Error! please try after few minutes.");
     }

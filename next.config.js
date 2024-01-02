@@ -1,11 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig = {};
 
-
-}
-
-module.exports = {
-    env: {
-        API: 'https://blogapp-wine-psi.vercel.app',
-      }
-}
+module.exports = nextConfig;

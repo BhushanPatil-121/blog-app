@@ -1,10 +1,11 @@
 import Link from "next/link";
 import "./page.css";
+import { BASE_API_URL } from "@/lib/mongodb";
 export default async function BlogId({ params }) {
   let id = params.blogid;
+  // const API = process.env.API
   const getSingleBlog = async () => {
-    const API = process.env.API
-    let item = await fetch(API+"/api/blogs/" + id, {
+    let item = await fetch(`${BASE_API_URL}/api/blogs/${id}`, {
       cache: "no-cache",
     });
     item = await item.json();

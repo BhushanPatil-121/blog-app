@@ -28,3 +28,15 @@ export async function PUT(request, content){
         return NextResponse.json({result:["Error"],success:false})
     }
 }
+
+export async function DELETE(request,content){
+    const blogId = content.params.blogid;
+    const record={_id:blogId};
+    try {
+        await mongoose.connect(connectionStart);
+        const data=await Blog.deleteOne(record);
+        return NextResponse.json({result:data,success:true})
+    } catch (error) {
+        return NextResponse.json({result:["Error"],success:false})
+    }
+}

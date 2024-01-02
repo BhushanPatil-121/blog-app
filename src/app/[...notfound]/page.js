@@ -5,7 +5,7 @@ export default function PageNotFound(){
         <div className='page-not-found'>
             Opps ! Page Not Found
             <br/>
-            <Link className='link' href={"/"}><button className='btn'>Go To Home</button></Link>
+            <Link className='link1' href={"/"}><button className='btn1'>Go To Home</button></Link>
         </div>
     )
 }

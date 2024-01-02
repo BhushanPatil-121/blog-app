@@ -14,10 +14,10 @@ export default function Navbar(){
       {/* <button */}
        
       {/* > */}
-        <Image  className="hamburger" alt="BTN"
-        onClick={() => {
+        <Image  className="hamburger" alt="BTN" 
+        height={50} width={50} src={"/3line.png"}  onClick={() => {
           setIsNavExpanded(!isNavExpanded)
-        }} height={50} width={50} src={"/3line.png"}/>
+        }}/>
       {/* </button> */}
       <div
         className={
@@ -26,16 +26,16 @@ export default function Navbar(){
       >
         <ul>
           <li>
-          <Link href={"/blogs"}>BLOGS </Link>
+          <Link className="link"  href={"/blogs"}>BLOGS </Link>
           </li>
           <li>
-          <Link href={"/blogs/addblog"}>ADD BLOG</Link>
+          <Link className="link" href={"/blogs/addblog"}>ADD BLOG</Link>
           </li>
           <li>
-          <Link href={"/aboutme"}>ABOUT</Link>
+          <Link className="link" href={"/aboutme"}>ABOUT</Link>
           </li>
           <li>
-          <Link  href={"/#footer"}>CONTACT</Link>
+          <Link  className="link" href={"/#footer"}>CONTACT</Link>
           </li>
         </ul>
       </div>

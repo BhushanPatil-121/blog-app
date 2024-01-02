@@ -1,15 +1,14 @@
 "use client";
 import { useState } from "react";
 import "./page.css";
+import { useRouter } from "next/navigation";
+import { BASE_API_URL } from "@/lib/mongodb";
 
 export default function Addblog() {
+  // const API = process.env.API
+  const router = useRouter();
   let dateData = new Date();
-  let date =
-    dateData.getDate() +
-    "/" +
-    (dateData.getMonth() + 1).toString() +
-    "/" +
-    dateData.getFullYear();
+  let date =dateData.getDate() +"/" +(dateData.getMonth() + 1)+"/" +dateData.getFullYear();
   // console.log(date);
   const [name, setName] = useState("");
   const [title, setTitle] = useState("");
@@ -22,25 +21,28 @@ export default function Addblog() {
     setSubtitle("");
     setInfo("");
   };
+  let lastedit=null;
+  // console.log(BASE_API_URL);
   const addBlog = async (request) => {
-    let lastedit=null;
-    const API = process.env.API
-    let data = await fetch(API+"/api/blogs", {
+    let data = await fetch(`${BASE_API_URL}/api/blogs`, {
       method: "POST",
       body: JSON.stringify({ name, title, subtitle, info, date ,lastedit}),
     });
     let response = await data.json();
-    console.log(response);
+    // console.log(response);
     if (response.success) {
-      actionClear();
-      showAlert();
+      // actionClear();
+      alert("Data Added");
+      back();
     } else {
       alert("Error!! Fail To Add Data, Fill All Details");
+      back();
+
     }
   };
-  const showAlert = () => {
-    alert("Data Added");
-  };
+  const back=async()=>{
+    router.back();
+  }
   return (
     <div>
       <div className="container add-container">
@@ -85,6 +87,7 @@ export default function Addblog() {
           <button
             style={{ backgroundColor: "rgba(0, 242, 42, 0.7)" }}
             onClick={addBlog}
+          // type="submit"
           >
             Submit
           </button>

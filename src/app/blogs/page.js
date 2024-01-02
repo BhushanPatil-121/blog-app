@@ -1,8 +1,10 @@
 import Link from "next/link";
 import "./page.css";
+import DeleteButton from "@/component/DeleteButton";
+import { BASE_API_URL } from "@/lib/mongodb";
 const getData = async () => {
-  const API = process.env.API
-  let data = await fetch(API+"/api/blogs", {
+  // const API = process.env.API
+  let data = await fetch(`${BASE_API_URL}/api/blogs`, {
     cache: "no-cache",
   });
   data = await data.json();
@@ -30,6 +32,7 @@ export default async function Blog() {
               <div className="col-md-6 item" key={item._id}>
                 <div className="item-in blog-item-list">
                   <h2>Title : {item.title}</h2>
+                  <DeleteButton id={item._id}/>
                   <h6>Description : {item.subtitle}</h6>
                   <p>Pulish Date : {item.date}</p>
 

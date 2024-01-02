@@ -128,6 +128,8 @@
     transition: all ease 0.3s;
     padding: 20px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
   }
   .button-div {
     display: flex;
@@ -161,4 +163,13 @@
   .blog-item-list:hover{
     /* scale: 1.01; */
     box-shadow: 0 0 5px rgba(50, 91, 97, 0.349),0 0 15px rgba(50, 91, 97, 0.349),0 0 25px rgba(50, 91, 97, 0.329),0 0 50px rgba(35, 180, 202, 0.274);
+  }
+
+  .delete-btn{
+    position: absolute;
+    border: none;
+    align-self: flex-end;
+    font-size: 30px;
+    color: red;
+    background-color: transparent;
   }

@@ -11,6 +11,9 @@ const getData = async () => {
   return data;
 };
 export default async function Blog() {
+  if (!BASE_API_URL) {
+    return null;
+  }
   let data = await getData();
   return (
     <div className="blog-list-container">

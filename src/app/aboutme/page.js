@@ -25,9 +25,9 @@ export default function AboutMe() {
               <p className="blog-p">
                 Blogger site is a technology blog dedicated to bringing you the
                 latest and most exciting developments in the world of
-                technology. Whether you're a tech enthusiast, a seasoned
+                technology. Whether you are a tech enthusiast, a seasoned
                 professional, or just curious about the latest gadgets and
-                innovations, you've come to the right place.
+                innovations, you have come to the right place.
               </p>
               <h6> Our Mission. </h6>
               <p className="blog-p">

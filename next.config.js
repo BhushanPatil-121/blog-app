@@ -6,6 +6,6 @@ const nextConfig = {
 
 module.exports = {
     env: {
-        API: 'https://blogapp.vercel.app',
+        API: 'https://blogapp-wine-psi.vercel.app',
       }
 }

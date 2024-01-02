@@ -2,7 +2,7 @@ import Link from "next/link";
 import "./page.css";
 export default function AboutMe() {
   return (
-    <div>
+    <div className="about-div">
       <section className="title container">
         <div className="row ">
           <div className="col-md-12 row-blog ">

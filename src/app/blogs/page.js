@@ -34,28 +34,29 @@ export default async function Blog() {
             {data.result.map((item) => (
               <div className="col-md-6 item" key={item._id}>
                 <div className="item-in blog-item-list">
+                <DeleteButton id={item._id}/>
+                
                   <h2>Title : {item.title}</h2>
-                  <DeleteButton id={item._id}/>
                   <h6>Description : {item.subtitle}</h6>
                   <p>Pulish Date : {item.date}</p>
 
                   {/* <div className="seperator"></div> */}
                   <p
-                    className="blog-p"
+                    className="blog-p blog-info"
                     style={{
                       textOverflow: "ellipsis",
                       whiteSpace: "nowrap",
                       overflow: "hidden",
                     }}
                   >
-                    <span>
-                      <u>Information :</u>{" "}
+                    <span className="info-span">
+                      <u>Information : </u>
                     </span>
                     {item.info}
                   </p>
                   <div className="button-div">
                     <button className="list-btn-link">
-                    <Link href={"/blogs/" + item._id}>Read More</Link>
+                    <Link href={"/blogs/" + item._id}>..Read More</Link>
                     </button>
                     {/* <button className="list-btn">
                       <Link href={"/blogs/" + item._id}> edit blog</Link>

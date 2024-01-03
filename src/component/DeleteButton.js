@@ -28,7 +28,7 @@ export default function DeleteButton(props) {
 
   return (
     <button className="delete-btn" onClick={deleteBlog}>
-      X
+      ❌
     </button>
   );
 }
